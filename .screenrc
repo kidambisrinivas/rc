@@ -1,0 +1,42 @@
+defscrollback 5000
+altscreen on
+autodetach on
+vbell off
+term xterm
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
+
+# Use fish as default shell
+shell "/home/srinivas/.linuxbrew/bin/zsh"
+
+# Configure last line of shell
+hardstatus on
+hardstatus alwayslastline
+
+# With date
+#hardstatus string '%{= dK}[%= %{= dK}%-Lw%{= dW}%50>%n%f* %t%{= dK}%+Lw %=][%{B} %-=%D %d %M %Y %c:%s%{-} ]'
+
+# Without date
+hardstatus string '%{= dK}[%= %{= dK}%-Lw%{= dW}%50>%n%f* %t%{= dK}%+Lw %=]'
+
+# Map special characters above numbers for convenience
+bind  ! select 11
+bind  @ select 12
+bind \# select 13
+bind  $ select 14
+bind  % select 15
+bind \^ select 16
+bind  & select 17
+bind  * select 18
+bind  ( select 19
+bind  ) select 10
+
+# Add tabs to get a basic layout
+screen -t home
+screen -t vim
+screen -t run1
+screen -t run2
+screen -t curl1
+screen -t curl2
+
