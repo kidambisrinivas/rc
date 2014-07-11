@@ -1,7 +1,7 @@
-# Setup preferred environment
+### Setup preferred environment
 
-# Sudo requirements
+#### Sudo requirements
 wget -O - https://raw.githubusercontent.com/kidambisrinivas/rc/master/setupHomeFolderSudo.sh | sudo sh
 
-# Install packages in home folder
+#### Install packages in home folder
 curl https://raw.githubusercontent.com/kidambisrinivas/rc/master/setupHomeFolder.sh | sh
