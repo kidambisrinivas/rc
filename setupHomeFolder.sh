@@ -5,20 +5,19 @@
 
 # 0. Clean messed up installation
 curl https://raw.githubusercontent.com/kidambisrinivas/rc/master/cleanMessedUpInstallation.sh | sh
-source ~/.bashrc
+exec bash
 
 # 1. Ship your own perl
 
 # 1.1 Install perlbrew to manage home folder perls
 curl -kL http://xrl.us/perlbrewinstall | bash
 echo "source ~/perl5/perlbrew/etc/bashrc" >> $HOME/.bashrc
-source ~/perl5/perlbrew/etc/bashrc
-source ~/.bashrc
+exec bash
 perlbrew available
 
 # 1.2 Install perl 5.18.2 with thread support
-perlbrew install perl-5.18.2_WITH_THREADS
-perlbrew switch perl-5.18.2
+perlbrew install -v perl-5.18.2 -Dusethreads --as perl-5.18.2_WITH_THREADS
+perlbrew switch perl-5.18.2_WITH_THREADS
 which perl
 perl -v
 
