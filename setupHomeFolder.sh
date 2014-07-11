@@ -57,7 +57,7 @@ rm -f col.zip
 
 # 4.2 Setup all plugins
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/plugins.vim" 
-vim +PluginInstall +qall
+vim +PluginInstall +qa
 cd $HOME/.vim/bundle/YouCompleteMe/
 ./install.sh
 cd $HOME/.vim/bundle/ultisnips/
@@ -65,6 +65,6 @@ git clone "https://github.com/honza/vim-snippets"
 cd $HOME/.vim/bundle/ultisnips/vim-snippets/Ultisnips/
 rm -f perl.snippets
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/perl.snippets"
-vim +PluginInstall +qall
+vim +PluginInstall +qa
 
 echo "Home Sweet home!"
