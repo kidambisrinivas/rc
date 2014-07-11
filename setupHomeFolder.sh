@@ -10,7 +10,7 @@ curl https://raw.githubusercontent.com/kidambisrinivas/rc/master/cleanMessedUpIn
 
 # 1.1 Install perlbrew to manage home folder perls
 curl -kL http://xrl.us/perlbrewinstall | bash
-echo source ~/perl5/perlbrew/etc/bashrc >> $HOME/.bashrc
+echo "source ~/perl5/perlbrew/etc/bashrc" >> $HOME/.bashrc
 source ~/perl5/perlbrew/etc/bashrc
 perlbrew available
 

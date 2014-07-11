@@ -11,6 +11,7 @@ sudo apt-get -y install zip unzip
 
 # Ship latest Vim
 cd $HOME
+sudo apt-get remove vim
 sudo apt-get -y install mercurial ncurses-dev
 hg clone https://vim.googlecode.com/hg/ vim
 cd vim/src
