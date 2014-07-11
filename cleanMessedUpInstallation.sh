@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+rm -rf ~/perl5
 rm -rf ~/.vim
 rm -f ~/.vimrc
 rm -f ~/.zshrc

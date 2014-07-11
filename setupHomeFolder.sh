@@ -1,27 +1,30 @@
 #!/usr/bin/env bash
 
+# This script will at least take 40 minutes to complete
+# Installing perl takes >~20 mins (to compile and install)
+
 # 0. Clean messed up installation
 curl https://raw.githubusercontent.com/kidambisrinivas/rc/master/cleanMessedUpInstallation.sh | sh
 
 # 1. Ship your own perl
 
 # 1.1 Install perlbrew to manage home folder perls
-#curl -kL http://xrl.us/perlbrewinstall | bash
-#echo source ~/perl5/perlbrew/etc/bashrc >> $HOME/.bashrc
-#source ~/perl5/perlbrew/etc/bashrc
-#perlbrew available
-#
-## 1.2 Install perl 5.18.2 with thread support
-#perlbrew install perl-5.18.2_WITH_THREADS
-#perlbrew switch perl-5.18.2
-#which perl
-#perl -v
-#
-## 1.3 Install cpanm and some modules
-#curl -kL http://cpanmin.us | perl - App::cpanminus
-#cpanm Try::Tiny
-#cpanm Data::Dumper
-#cpanm Eixo::Docker
+curl -kL http://xrl.us/perlbrewinstall | bash
+echo source ~/perl5/perlbrew/etc/bashrc >> $HOME/.bashrc
+source ~/perl5/perlbrew/etc/bashrc
+perlbrew available
+
+# 1.2 Install perl 5.18.2 with thread support
+perlbrew install perl-5.18.2_WITH_THREADS
+perlbrew switch perl-5.18.2
+which perl
+perl -v
+
+# 1.3 Install cpanm and some modules
+curl -kL http://cpanmin.us | perl - App::cpanminus
+cpanm Try::Tiny
+cpanm Data::Dumper
+cpanm Eixo::Docker
 
 # 2. Install linuxbrew
 ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
@@ -70,13 +73,16 @@ wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/.vimrc"
 cd $HOME/.vim/
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/plugins.vim" 
 vim +PluginInstall +qa
+echo "\n\n"
 cd $HOME/.vim/bundle/YouCompleteMe/
 ./install.sh
+echo "\n\n"
 cd $HOME/.vim/bundle/ultisnips/
 git clone "https://github.com/honza/vim-snippets"
 cd $HOME/.vim/bundle/ultisnips/vim-snippets/Ultisnips/
 rm -f perl.snippets
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/perl.snippets"
 vim +PluginInstall +qa
+echo "\n\n"
 
 echo "Home Sweet home!"
