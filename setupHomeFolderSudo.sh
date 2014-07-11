@@ -15,6 +15,6 @@ sudo apt-get remove vim
 sudo apt-get -y install mercurial ncurses-dev
 hg clone https://vim.googlecode.com/hg/ vim
 cd vim/src
-sudo ./configure --enable-pythoninterp --enable-rubyinterp --enable-perlinterp && sudo make && sudo make install
+sudo ./configure --enable-pythoninterp --enable-rubyinterp --enable-perlinterp && sudo make && sudo make uninstall && sudo make install
 cd $HOME
 sudo rm -rf vim
