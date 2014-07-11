@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # 1. Ship your own perl
 
 # 1.1 Install perlbrew to manage home folder perls
