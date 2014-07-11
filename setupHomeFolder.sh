@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# 0. Clean messed up installation
+curl https://raw.githubusercontent.com/kidambisrinivas/rc/master/cleanMessedUpInstallation.sh | sh
+
 # 1. Ship your own perl
 
 # 1.1 Install perlbrew to manage home folder perls
