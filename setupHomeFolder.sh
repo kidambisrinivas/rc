@@ -60,9 +60,11 @@ unzip col.zip
 rm -f col.zip
 
 # 4.2 Get vimrc
+cd $HOME
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/.vimrc"
 
 # 4.3 Setup all plugins
+cd $HOME/.vim/
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/plugins.vim" 
 vim +PluginInstall +qa
 cd $HOME/.vim/bundle/YouCompleteMe/
