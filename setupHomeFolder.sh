@@ -22,6 +22,9 @@
 
 # 2. Install linuxbrew
 ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
+echo "export PATH=\"\$HOME/.linuxbrew/bin:\$PATH\"" >> ~/.bashrc
+echo "export LD_LIBRARY_PATH=\"\$HOME/.linuxbrew/lib:\$LD_LIBRARY_PATH\"" >> ~/.bashrc
+source ~/.bashrc
 
 # 2.1 Setup zsh and useful commands
 brew install zsh
@@ -43,6 +46,7 @@ echo "}" >> ~/.zshrc
 
 # 3. Setup screen
 cd $HOME
+rm -f ~/.screenrc
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/.screenrc"
 
 # 4. Setup vim
@@ -55,7 +59,10 @@ wget "https://github.com/kidambisrinivas/rc/blob/master/col.zip"
 unzip col.zip
 rm -f col.zip
 
-# 4.2 Setup all plugins
+# 4.2 Get vimrc
+wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/.vimrc"
+
+# 4.3 Setup all plugins
 wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/plugins.vim" 
 vim +PluginInstall +qa
 cd $HOME/.vim/bundle/YouCompleteMe/
