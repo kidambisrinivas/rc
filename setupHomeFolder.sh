@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # This script will at least take 40 minutes to complete
 # Installing perl takes >~20 mins (to compile and install)
