@@ -3,3 +3,6 @@ sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl
 
 # For YouCompleteMe
 sudo apt-get install python-dev
+
+# General
+sudo apt-get install zip unzip

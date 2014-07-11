@@ -1,28 +1,27 @@
-# Ship your own perl
+# 1. Ship your own perl
 
-# Install perlbrew to manage home folder perls
-curl -kL http://xrl.us/perlbrewinstall | bash
-echo source ~/perl5/perlbrew/etc/bashrc >> $HOME/.bashrc
-source ~/perl5/perlbrew/etc/bashrc
-perlbrew available
+# 1.1 Install perlbrew to manage home folder perls
+#curl -kL http://xrl.us/perlbrewinstall | bash
+#echo source ~/perl5/perlbrew/etc/bashrc >> $HOME/.bashrc
+#source ~/perl5/perlbrew/etc/bashrc
+#perlbrew available
+#
+## 1.2 Install perl 5.18.2 with thread support
+#perlbrew install perl-5.18.2_WITH_THREADS
+#perlbrew switch perl-5.18.2
+#which perl
+#perl -v
+#
+## 1.3 Install cpanm and some modules
+#curl -kL http://cpanmin.us | perl - App::cpanminus
+#cpanm Try::Tiny
+#cpanm Data::Dumper
+#cpanm Eixo::Docker
 
-# Install perl 5.18.2 with thread support
-perlbrew install perl-5.18.2_WITH_THREADS
-perlbrew switch perl-5.18.2
-which perl
-perl -v
-
-# Install cpanm and some modules
-curl -kL http://cpanmin.us | perl - App::cpanminus
-cpanm Try::Tiny
-cpanm Data::Dumper
-cpanm Eixo::Docker
-cpanm Mojolicious
-
-# Install linuxbrew
+# 2. Install linuxbrew
 ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
 
-# Setup zsh and useful commands
+# 2.1 Setup zsh and useful commands
 brew install zsh
 curl -L http://install.ohmyz.sh | sh
 brew install autojump
@@ -39,3 +38,31 @@ echol "\n# Useful functions\n" >> ~/.zshrc
 echo "dm() {" >> ~/.zshrc
 echo "    grep -R \"^\s*use [a-zA-Z]\" . | grep -v -P \"strict|warnings| lib|utf8\" | perl -nle 'print \"requires \\\"\".\$1.\"\\\";\" if /.*?use ([^\;]+?)(?:\s*qw[^\;]+|\s+[^\w][\w\:\-]+[^\w])*\;/' | sort | uniq" >> ~/.zshrc
 echo "}" >> ~/.zshrc
+
+# 3. Setup screen
+cd $HOME
+wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/.screenrc"
+
+# 4. Setup vim
+
+# 4.1 Install Vundle
+mkdir -p $HOME/.vim/bundle/
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cd $HOME/.vim/
+wget "https://github.com/kidambisrinivas/rc/blob/master/col.zip"
+unzip col.zip
+rm -f col.zip
+
+# 4.2 Setup all plugins
+wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/plugins.vim" 
+vim +PluginInstall +qall
+cd $HOME/.vim/bundle/YouCompleteMe/
+./install.sh
+cd $HOME/.vim/bundle/ultisnips/
+git clone "https://github.com/honza/vim-snippets"
+cd $HOME/.vim/bundle/ultisnips/vim-snippets/Ultisnips/
+rm -f perl.snippets
+wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/perl.snippets"
+vim +PluginInstall +qall
+
+echo "Home Sweet home!"
