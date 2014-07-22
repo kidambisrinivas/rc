@@ -21,6 +21,8 @@ perlbrew switch perl-5.18.2_WITH_THREADS
 which perl
 perl -v
 
+source ~/.bashrc
+
 # 1.3 Install cpanm and some modules
 curl -kL http://cpanmin.us | perl - App::cpanminus
 cpanm Try::Tiny
