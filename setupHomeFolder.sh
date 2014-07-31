@@ -64,7 +64,8 @@ wget "https://raw.githubusercontent.com/kidambisrinivas/rc/master/.screenrc"
 mkdir -p $HOME/.vim/bundle/
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cd $HOME/.vim/
-wget "https://github.com/kidambisrinivas/rc/blob/master/col.zip"
+wget "https://github.com/kidambisrinivas/rc/blob/master/col.zip?raw=true"
+mv col.zip\?raw=true col.zip
 unzip col.zip
 rm -f col.zip
 
