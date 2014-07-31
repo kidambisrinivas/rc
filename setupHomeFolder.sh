@@ -16,18 +16,18 @@ source ~/.bashrc
 perlbrew available
 
 # 1.2 Install perl 5.18.2 with thread support
-perlbrew install -v perl-5.18.2 -Dusethreads --as perl-5.18.2_WITH_THREADS
-perlbrew switch perl-5.18.2_WITH_THREADS
+#perlbrew install -v perl-5.18.2 -Dusethreads --as perl-5.18.2_WITH_THREADS
+#perlbrew switch perl-5.18.2_WITH_THREADS
 which perl
 perl -v
 
 source ~/.bashrc
 
 # 1.3 Install cpanm and some modules
-curl -kL http://cpanmin.us | perl - App::cpanminus
-cpanm Try::Tiny
-cpanm Data::Dumper
-cpanm Eixo::Docker
+#curl -kL http://cpanmin.us | perl - App::cpanminus
+#cpanm Try::Tiny
+#cpanm Data::Dumper
+#cpanm Eixo::Docker
 
 # 2. Install linuxbrew
 ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
