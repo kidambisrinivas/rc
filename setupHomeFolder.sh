@@ -16,7 +16,7 @@ source ~/.bashrc
 perlbrew available
 
 # 1.2 Install perl 5.18.2 with thread support
-perlbrew install -v perl-5.18.2 -Dusethreads --as perl-5.18.2_WITH_THREADS
+perlbrew install -v perl-5.18.2 -Dusethreads -n -as perl-5.18.2_WITH_THREADS
 perlbrew switch perl-5.18.2_WITH_THREADS
 which perl
 perl -v
