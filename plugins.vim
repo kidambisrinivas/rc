@@ -27,5 +27,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'jistr/vim-nerdtree-tabs'
 "Plugin 'scrooloose/syntastic'
 
+Plugin 'lambdatoast/elm.vim'
+Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
+Plugin 'tpope/vim-surround'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
