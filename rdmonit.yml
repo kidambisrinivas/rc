@@ -1,0 +1,36 @@
+# ~/.tmuxinator/rdmonit.yml
+
+name: rdmonit
+root: ~/
+
+windows:
+  - home:
+      layout: main-vertical
+      panes:
+          - zsh 
+  - fleet:
+      layout: main-vertical
+      panes:
+          - ssh sem3@fleet.semantics3.com
+  - recdis:
+      layout: main-vertical
+      panes:
+          - ssh sem3@prod_recrawldiscovery_spl-0.semantics3.com
+  - loader:
+      layout: main-vertical
+      panes:
+          - ssh sem3@prod_recrawl_loader_spl-0.semantics3.com
+  - rdstore:
+      layout: main-vertical
+      panes:
+          - ssh sem3@prod_rdstore_spl-0.semantics3.com
+  - stateful:
+      layout: main-vertical
+      panes:
+          - ssh sem3@prod_crawl_stateful_spl-0.semantics3.com
+  - console:
+      layout: main-vertical
+      panes:
+          - ssh sem3@prod_console_spl-0.semantics3.com
+  # - server: bundle exec rails s
+  # - logs: tail -f log/development.lo

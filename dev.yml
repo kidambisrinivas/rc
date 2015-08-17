@@ -1,0 +1,22 @@
+# ~/.tmuxinator/dev.yml
+
+name: dev
+root: ~/
+
+windows:
+  - home:
+      layout: main-vertical
+      panes:
+          - zsh 
+  - vim:
+      layout: main-vertical
+      panes:
+          - ssh sem3@fleet.semantics3.com
+  - run:
+      layout: main-vertical
+      panes:
+          - ssh sem3@prod_recrawldiscovery_spl-0.semantics3.com
+  - curl:
+      layout: main-vertical
+      panes:
+          - ssh sem3@prod_recrawl_loader_spl-0.semantics3.com
