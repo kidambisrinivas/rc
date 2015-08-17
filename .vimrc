@@ -21,7 +21,14 @@ let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 colorscheme xoria256 
 
 " Map Ctrl-E for esc
-map <a-w> <ESC>
+imap ,, <ESC>
+nmap ,, <ESC>
+vmap ,, <ESC>
+imap <D-V> ^O"+p=`]
+nmap ,t <Esc>:tabnew
+vmap ,t <Esc>:tabnew
+" imap <D-v> <ESC>"+p=`]a
+" nnoremap p p=`]
 
 " Tab shortcuts
 map  <C-l> :tabn<CR>
@@ -63,6 +70,7 @@ set smartcase
 autocmd FileType perl set autoindent|set smartindent
 " 4 space tabs
 autocmd FileType perl set tabstop=4|set shiftwidth=4|set expandtab|set softtabstop=4
+autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab|set softtabstop=2
 
 " show line numbers
 autocmd FileType perl set nonu
@@ -150,6 +158,18 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_enable_use_short_source_names = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+let g:unite_source_grep_default_opts = "-iRHn"
+      \ . " --exclude='*.svn*'"
+      \ . " --exclude='*.svn*'"
+      \ . " --exclude='*.log*'"
+      \ . " --exclude='*tmp*'"
+      \ . " --exclude-dir='**/tmp'"
+      \ . " --exclude-dir='CVS'"
+      \ . " --exclude-dir='.svn'"
+      \ . " --exclude-dir='.git'"
+      \ . " --exclude-dir='node_modules'"
+      \ . " --exclude-dir='app/vendor'"
+      \ . " --exclude-dir='local'"
 nnoremap <leader>f :Unite -start-insert file_rec<cr>
 nnoremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 nnoremap <leader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
@@ -168,9 +188,37 @@ let g:UltiSnipsSnippetDirectories=["vim-snippets/UltiSnips/"]
 "Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 "Bundle "vim-scripts/perl-support.vim"
 
+" Elm configs
+au BufWritePost *.elm ElmMakeCurrentFile
+au BufWritePost *.elm ElmMakeFile("Main.elm")
+nnoremap <leader>el :ElmEvalLine<CR>
+vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
+set autoread
+
+" Notes
+nmap <leader>. :Note 
+
 set wildignore+=doc              " should not break helptags
 set wildignore+=.git             " should not break clone
 set wildignore+=.git/*             " should not break clone
 set wildignore+=*/.git/*
 
+" JSX Beautify
+function! FormatJSX()
+	" let g:cmd = "NODE_PATH=~/.nvm/versions/node/v0.12.7/lib/node_modules node ~/play/jsxlint.js "
+	" let g:cmd2 = "ls "
+    " let result = execute "!" . g:cmd2 . " " . expand("%:p") 
+	" 1,$d
+	" call setline( line("."), ''.result )
+    let g:compile_command = "NODE_PATH=~/.nvm/versions/node/v0.12.7/lib/node_modules node ~/play/jsxlint.js "
+    let result = system(g:compile_command. " " . expand("%:p"))
+	echo result
+	" 1,$d
+	result = substitute(result, '\n$', '', '')
+	call setline( line("."), ''.result )
+endfunction
+
 au VimLeave * ls 
+" au BufWrite *.jsx :call FormatJSX()
+ 
