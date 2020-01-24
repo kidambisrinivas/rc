@@ -60,6 +60,7 @@ call plug#begin('~/.vim/plugged')
 
 " Utility
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-easy-align'       " Tabular shortcuts: http://vimcasts.org/transcripts/29/en/
 Plug 'junegunn/vim-github-dashboard' " github dashboard
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -73,15 +74,15 @@ Plug 'kablamo/vim-git-log'
 Plug 'tpope/vim-fugitive'
 
 " General programming support
-Plug 'universal-ctags/ctags'
-Plug 'Townk/vim-autoclose'
+Plug 'universal-ctags/ctags' " Fast no-dependency tag mgmt https://bolt80.com/gutentags/
+Plug 'jb55/typescript-ctags'
 Plug 'tomtom/tcomment_vim'
-Plug 'janko/vim-test' " Set test strategy to vimux
+Plug 'janko/vim-test'               " Set test strategy to vimux
 
 " Mardown / Writing
 Plug 'reedes/vim-pencil'
 
-"Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " Autocomplete / Snippet completion plugins
 Plug 'Valloric/YouCompleteMe' " simple, super minimal, super light-weight tab-completion plugin for Vim: https://news.ycombinator.com/item?id=13962505
@@ -93,6 +94,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Languages
 Plug 'fatih/vim-go'
+Plug 'pangloss/vim-javascript'
+Plug 'kchmck/vim-coffee-script'
+" Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Theme
 Plug 'rakr/vim-one', { 'dir': '~/.vim/pack/vendor/start/vim-one' }
@@ -107,9 +113,9 @@ call plug#end()
 """"""""""""""""""""""""""""""""
 
 syntax on
-set t_Co=256 
+" set t_Co=256 
 colorscheme one
-let g:airline_theme='dracula'
+let g:airline_theme='wombat'
 "let g:one_allow_italics = 1
 if (has("termguicolors"))
 	set termguicolors
@@ -124,7 +130,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
-let g:airline_theme='dracula'
 
 """"""""""""""""""""""""""""""""
 " COLOR_SYNTAX_HIGHLIGHT: END
@@ -136,7 +141,13 @@ let g:airline_theme='dracula'
 
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+autocmd CompleteDone * pclose 
 
 " Devicons configuration 
 let g:webdevicons_conceal_nerdtree_brackets = 1
@@ -215,8 +226,34 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1
+let g:go_auto_type_info = 1
 let g:ycm_collect_identifiers_from_tags_files = 0
+" let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['errcheck']
+"au filetype go inoremap <buffer> . .<C-x><C-o>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 " Go configs: End
+
+" Javascript configs: Begin
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+" Javascript configs: End
+
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" Go configs: End
+
+set tags=tags
 
 " Python configs: Begin
 au BufNewFile,BufRead *.py
@@ -345,7 +382,7 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>ge <Plug>(go-rename)
 au FileType go nmap <Leader>gi <Plug>(go-info)
-au FileType go let $GOPATH = "/Users/srinivas/projects/gocode"
+au FileType go let $GOPATH = "/home/srinivas/gocode"
 
 " Easymotion config
 map <Leader> <Plug>(easymotion-prefix)
@@ -371,6 +408,7 @@ map <Leader>k <Plug>(easymotion-k)
 """"""""""""""""""""""""""""""""
 
 set complete-=i
+
 " set wildignore-=doc    " should not break helptags
 set wildignore+=.git   " should not break clone
 set wildignore+=.git/* " should not break clone
