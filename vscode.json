@@ -1,0 +1,103 @@
+{
+  "go.gopath": "/Users/srinivas/projects/gocode",
+  "go.goroot": "/Users/srinivas/.gvm/gos/go1.13.7",
+  "go.toolsGopath": "/Users/srinivas/projects/gocode",
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "autoComplete": true,
+    "documentSymbols": true,
+    "findReferences": true,
+    "format": true,
+    "goToDefinition": true,
+    "goToTypeDefinition": true,
+    "hover": true,
+    "signatureHelp": true,
+    "rename": true,
+    "workspaceSymbols": true
+  },
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": [
+    "--fast",
+    "-E",
+    "goimports",
+    "-E",
+    "gocritic",
+    "-E",
+    "gocyclo",
+    "-E",
+    "gosec",
+    "-E",
+    "maligned",
+    "-E",
+    "scopelint",
+    "-E",
+    "interfacer",
+    "-E",
+    "goconst",
+    "-E",
+    "unconvert",
+    "-E",
+    "unparam",
+    "-E",
+    "prealloc",
+    "-E",
+    "varcheck"
+  ],
+  "go.testOnSave": false,
+  "go.testFlags": [
+    "-v"
+  ],
+  "go.lintOnSave": "file",
+  "go.autocompleteUnimportedPackages": true,
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "explorer.confirmDragAndDrop": false,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "json.format.enable": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.statusBar.visible": true,
+  "prettier.tabWidth": 2,
+  "workbench.activityBar.visible": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.rendererType": "dom",
+  "terminal.integrated.shell.linux": "/usr/local/bin/zsh",
+  "editor.formatOnPaste": true,
+  // "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "extensions.ignoreRecommendations": false,
+  "editor.minimap.enabled": true,
+  "breadcrumbs.enabled": true,
+  "git.autofetch": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "explorer.confirmDelete": false,
+  "editor.renderWhitespace": "none",
+  "editor.renderControlCharacters": true,
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.sideBar.location": "left",
+  // Javascript/Typescript specific
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.format.enable": false,
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.watcherExclude": {
+    "**/local": true,
+    "**/node_modules": true,
+    "**/vendor": true,
+    "**/.git": true
+  }
+}
