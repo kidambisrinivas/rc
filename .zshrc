@@ -117,17 +117,17 @@ export NVM_DIR="$HOME/.nvm"
 sshw () {
         if [ -n "$1" ]
         then
-                ssh sem3@`grep -m $2 $1 /etc/hosts | tail -n 1 | awk '{print $1}' | xargs -I % curl -XGET "http://fleet.semantics3.com:4101/drones/meta/%" | jq -r '.drone.local_ip'`
+                ssh sem3@`grep -m $2 $1 /etc/hosts | tail -n 1 | awk '{print $1}' | xargs -I % curl -XGET "$HOST:4101/drones/meta/%" | jq -r '.drone.local_ip'`
         else
                 echo "ERROR: Search term is blank!"
         fi
 }
-alias ssh3f='nocorrect ssh -i ~/.ssh/Semantics3-infra.pem  -o StrictHostKeyChecking=no -o ServerAliveInterval=240 -l ubuntu'
-alias ssh3f2='nocorrect ssh -i ~/.ssh/Semantics3-infra2.pem  -o StrictHostKeyChecking=no -o ServerAliveInterval=240 -l ubuntu'
+alias ssh3f='nocorrect ssh -i ~/.ssh/MyKey.pem  -o StrictHostKeyChecking=no -o ServerAliveInterval=240 -l ubuntu'
+alias ssh3f2='nocorrect ssh -i ~/.ssh/MyKey.pem  -o StrictHostKeyChecking=no -o ServerAliveInterval=240 -l ubuntu'
 
 # Miniconda path
 # export PATH="/home/harik/miniconda3/bin:$PATH"
 
 source /usr/share/autojump/autojump.zsh
-alias brew=/home/srinivas/.linuxbrew/bin/brew
-[[ -s `/home/srinivas/.linuxbrew/bin/brew --prefix`/etc/autojump.sh ]] && . `/home/srinivas/.linuxbrew/bin/brew --prefix`/etc/autojump.sh
+alias brew=$HOME/.linuxbrew/bin/brew
+[[ -s `/home/srinivas/.linuxbrew/bin/brew --prefix`/etc/autojump.sh ]] && . `$HOME/.linuxbrew/bin/brew --prefix`/etc/autojump.sh
