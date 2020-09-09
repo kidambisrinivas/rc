@@ -8,7 +8,7 @@ Latest laptops ship with the following features
 
 * Fast boot
 * Secure boot
-* Intel Rapid Storage Technology [RAID caching for HDs]
+* Intel [Rapid Storage Technology](https://www.intel.in/content/www/in/en/architecture-and-technology/rapid-storage-technology.html) [RAID caching for HDs]
 * UEFI [Instead of BIOS]
 
 You may have to disable some or all of the above features to get ubuntu working on your laptop
