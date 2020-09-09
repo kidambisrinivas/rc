@@ -43,8 +43,8 @@ You may have to disable
 ### Disable Intel Rapid Storage Technology [RST]
 
 * Attempt to disable it using instructions from [Ubuntu's website](https://discourse.ubuntu.com/t/ubuntu-installation-on-computers-with-intel-r-rst-enabled/15347)
-* If the above doesnt work for you [It didnt work for me as well], you could try [this](https://askubuntu.com/questions/1233623/workaround-to-install-ubuntu-20-04-with-intel-rst-systems)
-* Implement Choice #2 of first answer there
+* If the above doesnt work for you [It didnt work for me as well], you could try [this workaround to disable iRST](https://askubuntu.com/questions/1233623/workaround-to-install-ubuntu-20-04-with-intel-rst-systems)
+* Implement Choice #2 of first answer above askubuntu link
 
 #### Instructions: Disable iRST for Windows 10
 
