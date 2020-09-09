@@ -1,5 +1,7 @@
 # Ubuntu Installation [Dual Boot with Windows]
 
+This article is intended to help installing Ubuntu 20.04 alongside Windows 10 in a 2020 model laptop [HP or Lenovo or ASUS]
+
 ## Latest laptops
 
 Latest laptops ship with the following features
