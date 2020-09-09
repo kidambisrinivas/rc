@@ -29,7 +29,8 @@ You may have to disable
 
 * I was getting an error **"Installation ISO file not found"** with Wubi for installing Ubuntu 20.04 alongside Windows 10 in UEFI.
 * [Github Issue](https://github.com/hakuna-m/wubiuefi/issues/100)
-* At the time of this writing [9-Sep-2020], this issue is still Open
+* At the time of this writing [9-Sep-2020], this issue is still Open. So I could not install Ubuntu as an application inside Windows 10 using Wubi
+* Hence, I switched to installing Ubuntu 20.04 alongside Windows 10 in a dual boot setup
 
 ## Option2: Dual Boot 
 
