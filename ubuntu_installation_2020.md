@@ -37,7 +37,7 @@ You may have to disable
 ### Disable Fast boot
 
 * Disabling Fast boot is quite easy.
-* Press <F2> upon boot to enter UEFI menu
+* Press **F2** upon boot to enter UEFI menu
 * Go to Boot tab and disable Fast boot
 
 ### Disable Intel Rapid Storage Technology [RST]
