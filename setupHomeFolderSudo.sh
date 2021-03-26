@@ -33,6 +33,7 @@ sudo rm -rf vim
 # MacOS - Vim Setup Instructions
 # Python 3.9.2 Setup
 brew install pyenv
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
 pyenv install 3.9.2
 pyenv version
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc\n
@@ -49,3 +50,15 @@ sudo make && sudo make uninstall && sudo make install
 
 echo -e 'alias vim=/usr/local/bin/vim' >> ~/.zshrc
 
+# Download col.zip from here https://github.com/kidambisrinivas/rc/blob/master/col.zip and move to ~/.vim and unzip
+mkdir ~/.vim
+
+# Install vim plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    
+# Copy vimrc from this repo and run <esc>:PlugInstall
+
+# Install YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe/
+python3 install.py
