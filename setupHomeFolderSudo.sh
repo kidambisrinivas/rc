@@ -30,3 +30,23 @@ sudo make && sudo make uninstall && sudo make install
 cd $HOME
 sudo rm -rf vim
 
+# MacOS - Vim Setup Instructions
+# Python 3.9.2 Setup
+brew install pyenv
+pyenv install 3.9.2
+pyenv version
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc\n
+echo -e '3.9.2\n' > ~/.pyenv/version
+exec zsh
+python3 -V
+
+# Vim Setup Instructions
+sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/sbin
+brew install cmake gcc
+git clone https://github.com/vim/vim
+sudo ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-python3interp=yes --with-python3-command=/Users/username/.pyenv/versions/3.9.2/bin/python3 --with-python3-config-dir=$(/Users/username/.pyenv/v
+ersions/3.9.2/bin/python3-config --configdir) --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope --enable-rubyinterp
+sudo make && sudo make uninstall && sudo make install
+
+echo -e 'alias vim=/usr/local/bin/vim' >> ~/.zshrc
+
