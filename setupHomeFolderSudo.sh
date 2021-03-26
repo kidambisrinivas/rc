@@ -32,7 +32,7 @@ sudo rm -rf vim
 
 # MacOS - Vim Setup Instructions
 # Python 3.9.2 Setup
-brew install pyenv
+brew install pyenv ctags htop
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 pyenv install 3.9.2
 pyenv version
