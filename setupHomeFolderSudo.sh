@@ -44,8 +44,7 @@ python3 -V
 sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/sbin
 brew install cmake gcc
 git clone https://github.com/vim/vim
-sudo ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-python3interp=yes --with-python3-command=/Users/username/.pyenv/versions/3.9.2/bin/python3 --with-python3-config-dir=$(/Users/username/.pyenv/v
-ersions/3.9.2/bin/python3-config --configdir) --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope --enable-rubyinterp
+sudo ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-python3interp=yes --with-python3-command=/Users/username/.pyenv/versions/3.9.2/bin/python3 --with-python3-config-dir=$(/Users/username/.pyenv/versions/3.9.2/bin/python3-config --configdir) --enable-perlinterp=yes --enable-luainterp=yes --enable-gui=gtk2 --enable-cscope --enable-rubyinterp
 sudo make && sudo make uninstall && sudo make install
 
 echo -e 'alias vim=/usr/local/bin/vim' >> ~/.zshrc
